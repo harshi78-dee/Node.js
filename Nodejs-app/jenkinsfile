@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                // Install dependencies
+                sh 'npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Run tests
+                sh 'npm test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Deploy the application
+                sh 'scp -r . user@server:/path/to/deploy'
+            }
+        }
+    }
+}
