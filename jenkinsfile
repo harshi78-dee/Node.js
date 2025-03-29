@@ -18,7 +18,9 @@ pipeline {
             }
         }
         stage('Build') {
-            steps {"build": "echo 'build is successful' && exit 0"
+            steps {
+    sh 'echo "build is successful" && exit 0'
+}
                 // Build the application
                 bat 'npm run build'
             }
