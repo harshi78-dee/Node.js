@@ -8,19 +8,19 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install dependencies
-                sh 'npm install'
+                bat 'npm install'
             }
         }
         stage('Test') {
             steps {
                 // Run tests
-                sh 'npm test || echo "No tests defined"'
+                bat 'npm test || echo "No tests defined"'
             }
         }
         stage('Build') {
             steps {"build": "echo 'build is successful' && exit 0"
                 // Build the application
-                sh 'npm run build'
+                bat 'npm run build'
             }
         }
     }
